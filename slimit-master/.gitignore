@@ -1,0 +1,15 @@
+*.pyc
+*.pyo
+.installed.cfg
+.coverage
+htmlcov
+bin
+build
+develop-eggs
+dist
+downloads
+eggs
+htmlcov
+parts
+src/*.egg-info
+var
