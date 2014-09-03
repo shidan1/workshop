@@ -1,23 +1,25 @@
 import math
 
-d = {}
-def initDict(d):
+
+def initDict():
+    d = {}
     d["number"]=0
     d["letter"]=0
     d["else"]=0
     d["special"]=0
+    return d
 
-def countChar(c):
+def countChar(c,d):
     charType = checkChar(c)
     d[charType] +=1
 
-def printCount():
+def printCount(d):
     for c in d:
         print(c,d[c])
 
-def countString(s):
+def countString(s,d):
     for c in s:
-        countChar(c)
+        countChar(c,d)
 
 def checkChar(c):
     if ord('A') <= ord(c) <= ord('Z') or ord('a') <= ord(c) <= ord('z'):
@@ -29,21 +31,7 @@ def checkChar(c):
     return "else"
 
 def metric1(s):
-    initDict(d)
-    countString(s)
+    d = initDict()
+    countString(s,d)
     printCount()
-
-def metric2(s):
-    hist = {}
-    elist = []
-    l = 0
-    for e in s:
-        l += 1
-        if e not in hist:
-            hist[e] = 0
-        hist[e] += 1
-    for v in hist.values():
-        c = v / l
-        elist.append(-c * math.log(c ,2))
-    return sum(elist)
 
