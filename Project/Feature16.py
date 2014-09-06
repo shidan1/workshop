@@ -8,4 +8,5 @@ def scriptWhitespacePercentage(path):
     allChars = len(script)
     return str(round(whiteSpaces/allChars*100,2)) + "%"
 
-print(scriptWhitespacePercentage('scripts/workshop_ex5.js'))
+print(scriptWhitespacePercentage('scripts/workshop_ex7.js'))
+
