@@ -1,4 +1,5 @@
 import math
+from collections import Counter
 
 
 def initDict():
@@ -8,6 +9,10 @@ def initDict():
     d["else"]=0
     d["special"]=0
     return d
+
+def entropy(s):
+        p, lns = Counter(s), float(len(s))
+        return -sum( count/lns * math.log(count/lns, 2) for count in p.values())
 
 def countChar(c,d):
     charType = checkChar(c)
