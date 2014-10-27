@@ -1,0 +1,33 @@
+﻿var now = new Date();
+var hours = now.getHours();
+var minutes = now.getMinutes();
+var seconds = now.getSeconds();
+
+var ampm = "am";
+var colon = '<IMG SRC="images/colon.gif">';
+
+if (hours >= 12) {
+     ampm = "pm";
+     hours = hours - 12;
+}
+
+if (hours == 0) hours = 12;
+
+if (hours < 10) hours = "0" + hours;
+else hours = hours + '';
+
+if (minutes < 10) minutes = "0" + minutes;
+else minutes = minutes + '';
+
+if (seconds < 10) seconds = "0" + seconds;
+else seconds = seconds + '';
+
+document.write('<IMG SRC="images/' + hours.charAt(0) + '.gif">');
+document.write('<IMG SRC="images/' + hours.charAt(1) + '.gif">');
+document.write(colon);
+document.write('<IMG SRC="images/' + minutes.charAt(0) + '.gif">');
+document.write('<IMG SRC="images/' + minutes.charAt(1) + '.gif">');
+document.write(colon);
+document.write('<IMG SRC="images/' + seconds.charAt(0) + '.gif">');
+document.write('<IMG SRC="images/' + seconds.charAt(1) +'.gif">');
+document.write('<IMG SRC="images/' + ampm + '.gif">');
