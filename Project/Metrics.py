@@ -1,6 +1,5 @@
-import math
-from collections import Counter
-from Project.StringExtractor import strExtractParse
+
+
 
 
 def initDict():
@@ -11,16 +10,7 @@ def initDict():
     d["special"]=0
     return d
 
-def entropy(s):
-        p, lns = Counter(s), float(len(s))
-        return -sum( count/lns * math.log(count/lns, 2) for count in p.values())
 
-def strEntropy(s):
-    strings = strExtractParse(s)
-    l = []
-    for x in strings:
-        l+=[entropy(x)]
-    return l
 
 def countChar(c,d):
     charType = checkChar(c)
@@ -46,5 +36,6 @@ def checkChar(c):
 def metric1(s):
     d = initDict()
     countString(s,d)
-    printCount()
+    return (d["else"]+d["special"])/(d["number"]+d["letter"])
+    #printCount()
 

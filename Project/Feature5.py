@@ -1,15 +1,15 @@
-from Project.Metrics import *
-from Project.StringExtractor import *
+from Project.Entropy import entropy
+from Project.StringExtractor import strExtract
 
 def stringsEntropy(s):
     strings = strExtract(s)
     if strings==[]:
-        return strings
+        return 0
     else:
         ent = []
         for st in strings:
             ent+=[entropy(st)]
-        return strings
+        return sum(strings)
             
     
         
