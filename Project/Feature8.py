@@ -1,4 +1,4 @@
-from Project.Feature5 import stringsEntropy
+from Entropy import strEntropy
 
 def maxEntropy(s):
-    return max(stringsEntropy(s))
+    return max(strEntropy(s))

@@ -1,4 +1,8 @@
 from slimit.lexer import Lexer
+from slimit.parser import Parser
+from slimit.visitors import nodevisitor
+from slimit import ast
+
 def strExtract(s):
     l = []
     i=0
@@ -32,4 +36,22 @@ def strExtractParse(s):
             l+=[token.value]
     return l
 
+def forExtract(s):
+    l = []
+    parser = Parser()
+    tree = parser.parse(s)
+    for node in nodevisitor.visit(tree):
+        if isinstance(node, ast.For):
+            l+=[node.to_ecma()]
+    return l
 
+def whileExtract(s):
+    l = []
+    parser = Parser()
+    tree = parser.parse(s)
+    for node in nodevisitor.visit(tree):
+        if isinstance(node, ast.While):
+            l+=[node.to_ecma()]
+    return l
+                 
+             
