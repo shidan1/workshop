@@ -1,6 +1,2 @@
-def lengthOfScriptCharacters(path):
-    f = open(path)
-    script = f.read()
+def lengthOfScriptCharacters(script):
     return len(script)
-
-print(lengthOfScriptCharacters('scripts/workshop_ex1.js'))

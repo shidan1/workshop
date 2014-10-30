@@ -1,7 +1,4 @@
 
-
-
-
 def initDict():
     d = {}
     d["number"]=0
@@ -16,10 +13,6 @@ def countChar(c,d):
     charType = checkChar(c)
     d[charType] +=1
 
-def printCount(d):
-    for c in d:
-        print(c,d[c])
-
 def countString(s,d):
     for c in s:
         countChar(c,d)
@@ -33,9 +26,10 @@ def checkChar(c):
         return "special"
     return "else"
 
-def metric1(s):
+def nGram(s):
     d = initDict()
     countString(s,d)
     return (d["else"]+d["special"])/(d["number"]+d["letter"])
     #printCount()
+
 
