@@ -16,3 +16,6 @@ def numberEval(script):
         if token.value == 'setTimeout':
             counter+=1
     return counter
+
+def run(script):
+    return numberEval(script)

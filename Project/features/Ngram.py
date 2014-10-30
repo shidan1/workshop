@@ -37,4 +37,5 @@ def nGram(script):
     countString(script,d)
     return (d["else"]+d["special"])/(d["number"]+d["letter"])
 
-
+def run(script):
+    return nGram(script)

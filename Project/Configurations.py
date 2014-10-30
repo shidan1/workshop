@@ -1,5 +1,6 @@
 from Project.features import *
 import os
+from Project.features.Feature1 import numberEval
 
 def featureConfigure():   
     path = 'features/.'
@@ -17,6 +18,6 @@ def featureConfigure():
     """
     featureConfig['Feature1.py'] = True
     featureConfig['Feature21.py'] = True
-    featureConfig['N-gram.py'] = True
+    featureConfig['Ngram.py'] = True
     
     return featureConfig

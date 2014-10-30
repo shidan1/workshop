@@ -27,4 +27,7 @@ def numberDOModificationFunctions(script):
         if token.type == 'ID' and token.value in DOModificationFunctions:
             counter += 1
     return counter        
+
+def run(script):
+    return numberDOModificationFunctions(script)
     

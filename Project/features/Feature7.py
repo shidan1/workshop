@@ -16,3 +16,6 @@ def numberLongStrings(script):
         if token.type == 'STRING' and len(token.value) > 39:
             counter+=1
     return counter
+
+def run(script):
+    return numberLongStrings(script)

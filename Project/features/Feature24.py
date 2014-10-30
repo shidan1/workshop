@@ -19,3 +19,6 @@ def numberOfUnescapeAndEscape(script):
         if token.type == 'ID' and token.value in functions:
             counter += 1
     return counter        
+
+def run(script):
+    return numberOfUnescapeAndEscape(script)

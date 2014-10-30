@@ -20,3 +20,5 @@ def numberOfCreateObjectAndActiveXObject(script):
             counter += 1
     return counter        
     
+def run(script):
+    return numberOfCreateObjectAndActiveXObject(script)

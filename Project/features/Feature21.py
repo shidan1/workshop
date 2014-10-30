@@ -5,3 +5,7 @@ the length of the script in characters
 
 def lengthOfScriptCharacters(script):
     return len(script)
+
+def run(script):
+    return lengthOfScriptCharacters(script)
+

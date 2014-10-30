@@ -12,3 +12,6 @@ def averageScriptLineLength(path):
             chars += len(line)
     return str(round(chars/lines,2))
     
+    
+def run(script):
+    return averageScriptLineLength(script)

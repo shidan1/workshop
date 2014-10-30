@@ -12,3 +12,5 @@ def numberOfSuspiciousTagStrings(script):
         tags.add(repr(match.group()))
     return len(tags)
 
+def run(script):
+    return numberOfSuspiciousTagStrings(script)

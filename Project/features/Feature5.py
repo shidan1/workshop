@@ -16,5 +16,6 @@ def stringsEntropy(script):
             ent+=[entropy(st)]
         return sum(strings)
             
-    
-        
+
+def run(script):
+    return stringsEntropy(script)

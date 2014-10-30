@@ -7,3 +7,6 @@ from Project.Entropy import strEntropy
 
 def maxEntropy(script):
     return max(strEntropy(script))
+
+def run(script):
+    return maxEntropy(script)

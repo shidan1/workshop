@@ -17,3 +17,6 @@ def numberOfStringsContainingSubstring(script,substring='iframe'):
             counter+=1
     return counter
 
+
+def run(script):
+    return numberOfStringsContainingSubstring(script)

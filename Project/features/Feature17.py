@@ -23,3 +23,5 @@ def averageLengthOfStrings(script):
     else:
         return 0
 
+def run(script):
+    return averageLengthOfStrings(script)

@@ -17,3 +17,6 @@ def numberEval(script):
             counter+=1
     return counter
 
+def run(script):
+    return numberEval(script)
+

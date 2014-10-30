@@ -9,3 +9,6 @@ def maxStrLength(script):
     strings = strExtract(script)
     return len(max(strings, key=len))
     
+    
+def run(script):
+    return maxStrLength(script)

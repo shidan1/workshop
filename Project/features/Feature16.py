@@ -11,3 +11,6 @@ def scriptWhitespacePercentage(script):
     allChars = len(miniScript)
     return str(round(whiteSpaces/allChars*100,2)) + "%"
 
+
+def run(script):
+    return scriptWhitespacePercentage(script)
