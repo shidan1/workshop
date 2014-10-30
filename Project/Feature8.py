@@ -1,4 +1,9 @@
-from Entropy import strEntropy
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 8:
+the maximum entropy of all the script’s strings
+"""
 
-def maxEntropy(s):
-    return max(strEntropy(s))
+from Project.Entropy import strEntropy
+
+def maxEntropy(script):
+    return max(strEntropy(script))

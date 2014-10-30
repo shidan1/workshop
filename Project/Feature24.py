@@ -1,11 +1,14 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 24:
+the number of parseInt and fromcharcode
+"""
+
 from slimit.lexer import Lexer
 
 functions = set(["parseInt", 
                  "fromcharcode"])
 
-def numberOfUnescapeAndEscape(path):
-    f = open(path)
-    script = f.read()
+def numberOfUnescapeAndEscape(script):
     lexer = Lexer()
     lexer.input(script)
     counter = 0
@@ -16,5 +19,3 @@ def numberOfUnescapeAndEscape(path):
         if token.type == 'ID' and token.value in functions:
             counter += 1
     return counter        
-    
-print(numberOfUnescapeAndEscape('scripts/workshop_ex10.js'))

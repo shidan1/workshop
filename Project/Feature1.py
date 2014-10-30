@@ -1,9 +1,14 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 1:
+the number of eval() function
+"""
+
 from slimit.lexer import Lexer
 
-def numberEval(s):
+def numberEval(script):
     counter=0
     lexer = Lexer()
-    lexer.input(s)
+    lexer.input(script)
     while True:
         token = lexer.token()
         if not token:

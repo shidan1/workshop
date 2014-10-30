@@ -1,8 +1,13 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 5:
+the entropy of the strings declared in the script
+"""
+
 from Project.Entropy import entropy
 from Project.StringExtractor import strExtract
 
-def stringsEntropy(s):
-    strings = strExtract(s)
+def stringsEntropy(script):
+    strings = strExtract(script)
     if strings==[]:
         return 0
     else:
