@@ -1,4 +1,10 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 4:
+the number of built-in functions used for deobfuscation
+"""
+
 from slimit.lexer import Lexer
+
 def feature4(str):
     #f = open(path)
     #script = f.read()

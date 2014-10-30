@@ -1,2 +1,7 @@
-def feature13(str):
-    return str.count('\\u')
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 13:
+the number of event attachments
+"""
+
+def feature13(script):
+    return script.count('\\u')

@@ -1,8 +1,11 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 19:
+the number of strings containing "iframe"
+"""
+
 from slimit.lexer import Lexer
 
-def numberOfStringsContainingSubstring(path,substring):
-    f = open(path)
-    script = f.read()
+def numberOfStringsContainingSubstring(script,substring='iframe'):
     lexer = Lexer()
     lexer.input(script)
     counter = 0
@@ -14,5 +17,3 @@ def numberOfStringsContainingSubstring(path,substring):
             counter+=1
     return counter
 
-
-print(numberOfStringsContainingSubstring('scripts/workshop_ex9.js','iframe'))

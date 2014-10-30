@@ -1,8 +1,11 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 17:
+the average length of the strings used in the script
+"""
+
 from slimit.lexer import Lexer
 
-def averageLengthOfStrings(path):
-    f = open(path)
-    script = f.read()
+def averageLengthOfStrings(script):
     lexer = Lexer()
     lexer.input(script)
     strings = set()
@@ -20,5 +23,3 @@ def averageLengthOfStrings(path):
     else:
         return 0
 
-
-print(averageLengthOfStrings('scripts/workshop_ex6.js'))

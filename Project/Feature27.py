@@ -1,11 +1,14 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 27:
+the number of CreateObject,ActiveXObject
+"""
+
 from slimit.lexer import Lexer
 
 functions = set(["CreateObject", 
                  "ActiveXObject"])
 
-def numberOfCreateObjectAndActiveXObject(path):
-    f = open(path)
-    script = f.read()
+def numberOfCreateObjectAndActiveXObject(script):
     lexer = Lexer()
     lexer.input(script)
     counter = 0
@@ -17,4 +20,3 @@ def numberOfCreateObjectAndActiveXObject(path):
             counter += 1
     return counter        
     
-print(numberOfCreateObjectAndActiveXObject('scripts/workshop_ex10.js'))

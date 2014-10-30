@@ -1,3 +1,8 @@
+"""
+A Static Malicious JavaScript Detection Using SVM - Feature 15:
+the number of DOM modification functions
+"""
+
 from slimit.lexer import Lexer
 
 DOModificationFunctions = set(["getElementById",
@@ -11,9 +16,7 @@ DOModificationFunctions = set(["getElementById",
                                "innerHTML"
                                ])
 
-def numberDOModificationFunctions(path):
-    f = open(path)
-    script = f.read()
+def numberDOModificationFunctions(script):
     lexer = Lexer()
     lexer.input(script)
     counter = 0
@@ -25,4 +28,3 @@ def numberDOModificationFunctions(path):
             counter += 1
     return counter        
     
-print(numberDOModificationFunctions('scripts/workshop_ex9.js'))

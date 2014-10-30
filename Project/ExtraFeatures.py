@@ -3,7 +3,6 @@ from slimit.lexer import Lexer
 from slimit.parser import Parser
 from slimit.visitors import nodevisitor
 from slimit import ast
-from Metrics import metric1
 
 # Problem string: \u, \x, 0x, %u
 
