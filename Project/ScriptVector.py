@@ -1,9 +1,9 @@
 from svmutil import svm_train, svm_predict
-from Project import Metrics, Feature1, Feature21 
+from Project.features import Feature1, Feature21, Ngram
 
 def vectorize(s):
     d = {}
-    d[1] = Metrics.nGram(s)
+    d[1] = Ngram.nGram(s)
     d[2] = Feature1.numberEval(s)
     d[3] = Feature21.lengthOfScriptCharacters(s)
     

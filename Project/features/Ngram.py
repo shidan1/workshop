@@ -1,3 +1,11 @@
+"""
+N-gram: We check the usage frequency of ASCII code in the strings. By doing this, 
+we can know how many each byte code is used in the string. We use 1-gram among N-gram 
+and it is equal to byte occurrence frequency. We classify ASCII code into three category.
+We focus on Special Char among byte codes, because much obfuscated 
+strings use excessively specific characters such as \, [, ], @, x, u, and so on. In strings of 
+normal JavaScript codes, Alphabet and Number are used evenly among all. 
+"""
 
 def initDict():
     d = {}
@@ -6,8 +14,6 @@ def initDict():
     d["else"]=0
     d["special"]=0
     return d
-
-
 
 def countChar(c,d):
     charType = checkChar(c)
@@ -26,10 +32,9 @@ def checkChar(c):
         return "special"
     return "else"
 
-def nGram(s):
+def nGram(script):
     d = initDict()
-    countString(s,d)
+    countString(script,d)
     return (d["else"]+d["special"])/(d["number"]+d["letter"])
-    #printCount()
 
 
