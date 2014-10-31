@@ -3,7 +3,7 @@ from Project.features import Feature1, Feature2, Feature4, Feature5, Feature6
 from Project.features import Feature7, Feature8, Feature10, Feature13, Feature14
 from Project.features import Feature15, Feature16, Feature17, Feature18, Feature19
 from Project.features import Feature20, Feature21, Feature22, Feature24, Feature27
-from Project.features import Ngram
+from Project.features import Ngram, ForLength, WhileLength
 
 
 def scriptVectorize(script):

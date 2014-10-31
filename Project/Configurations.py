@@ -37,5 +37,7 @@ def featureConfigure():
     featureConfig['Feature24.py'] = True
     featureConfig['Feature27.py'] = True
     featureConfig['Ngram.py'] = True
+    featureConfig['ForLength.py'] = True
+    featureConfig['WhileLength.py'] = False
     
     return featureConfig
