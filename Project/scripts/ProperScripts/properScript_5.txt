@@ -1,0 +1,75 @@
+//2-level combo box script- by javascriptkit.com
+//Visit JavaScript Kit (http://javascriptkit.com) for script
+//Credit must stay intact for use
+
+//STEP 1 of 2: DEFINE the main category links below
+//EXTEND array as needed following the laid out structure
+//BE sure to preserve the first line, as it's used to display main title
+
+var category=new Array()
+category[0]=new Option("SELECT A CATEGORY ", "") //THIS LINE RESERVED TO CONTAIN COMBO TITLE
+category[1]=new Option("Webmaster sites", "combo1")
+category[2]=new Option("News sites", "combo2")
+category[3]=new Option("Entertainment", "combo3")
+
+//STEP 2 of 2: DEFINE the sub category links below
+//EXTEND array as needed following the laid out structure
+//BE sure to preserve the LAST line, as it's used to display submain title
+
+var combo1=new Array()
+combo1[0]=new Option("JavaScript Kit","http://javascriptkit.com")
+combo1[1]=new Option("Dynamic Drive","http://www.dynamicdrive.com")
+combo1[2]=new Option("Freewarejava.com","http://www.freewarejava.com")
+combo1[3]=new Option("Free Web Templates","http://www.freewebtemplates.com")
+combo1[4]=new Option("Web Monkey","http://www.webmonkey.com")
+combo1[5]=new Option("BACK TO CATEGORIES","")   //THIS LINE RESERVED TO CONTAIN COMBO SUBTITLE
+
+var combo2=new Array()
+combo2[0]=new Option("CNN","http://www.cnn.com")
+combo2[1]=new Option("MSNBC","http://www.msnbc.com")
+combo2[2]=new Option("BBC News","http://news.bbc.co.uk")
+combo2[3]=new Option("ABC News","http://www.abcnews.com")
+combo2[4]=new Option("BACK TO CATEGORIES","")   //THIS LINE RESERVED TO CONTAIN COMBO SUBTITLE
+
+var combo3=new Array()
+combo3[0]=new Option("Hollywood.com","http://www.hollywood.com")
+combo3[1]=new Option("MTV","http://www.mtv.com")
+combo3[2]=new Option("ETOnline","http://etonline.com")
+combo3[3]=new Option("BACK TO CATEGORIES","")   //THIS LINE RESERVED TO CONTAIN COMBO SUBTITLE
+
+var curlevel=1
+var cacheobj=document.dynamiccombo.stage2
+
+function populate(x){
+for (m=cacheobj.options.length-1;m>0;m--)
+cacheobj.options[m]=null
+selectedarray=eval(x)
+for (i=0;i<selectedarray.length;i++)
+cacheobj.options[i]=new Option(selectedarray[i].text,selectedarray[i].value)
+cacheobj.options[0].selected=true
+
+}
+
+function displaysub(){
+if (curlevel==1){
+populate(cacheobj.options[cacheobj.selectedIndex].value)
+curlevel=2
+}
+else
+gothere()
+}
+
+
+function gothere(){
+if (curlevel==2){
+if (cacheobj.selectedIndex==cacheobj.options.length-1){
+curlevel=1
+populate(category)
+}
+else
+location=cacheobj.options[cacheobj.selectedIndex].value
+}
+}
+
+//SHOW categories by default
+populate(category)

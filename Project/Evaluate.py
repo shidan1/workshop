@@ -10,6 +10,12 @@ def evaluate(s):
 
 
 s = r'''
+setTimeout("document.bgColor='white'", 1000);
+setTimeout("document.bgColor='lightpink'", 1500);
+setTimeout("document.bgColor = 'pink'", 2000);
+setTimeout("document.bgColor =  'deeppink'", 2500);
+setTimeout("document.bgColor = 'red'", 3000);
+setTimeout("document.bgColor = 'tomato'", 3500);
 
 '''
 print(evaluate(s))

@@ -1,0 +1,12 @@
+
+//Accept terms & conditions script (by InsightEye www.insighteye.com)
+//Visit JavaScript Kit (http://javascriptkit.com) for this script & more.
+
+function checkCheckBox(f){
+if (f.agree.checked == false )
+{
+alert('Please check the box to continue.');
+return false;
+}else
+return true;
+}

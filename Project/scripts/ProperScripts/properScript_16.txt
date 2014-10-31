@@ -1,0 +1,20 @@
+
+
+var targetURL="http://www.javascriptfreecode.com/"
+var countdownfrom=5
+
+
+var currentsecond=document.redirect.redirect2.value=countdownfrom+1
+function countredirect(){
+if (currentsecond!=1){
+currentsecond-=1
+document.redirect.redirect2.value=currentsecond
+}
+else{
+window.location=targetURL
+return
+}
+setTimeout("countredirect()",1000)
+}
+
+countredirect()

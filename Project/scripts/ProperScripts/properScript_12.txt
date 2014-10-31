@@ -1,0 +1,80 @@
+//Body Mass calculator- by John Scott (johnscott03@yahoo.com)
+//Visit JavaScript Kit (http://javascriptkit.com) for script
+//Credit must stay intact for use
+
+function ClearForm(form){
+
+    form.weight.value = "";
+    form.height.value = "";
+    form.bmi.value = "";
+    form.my_comment.value = "";
+
+}
+
+function bmi(weight, height) {
+
+          bmindx=weight/eval(height*height);
+          return bmindx;
+}
+
+function checkForm(form) {
+
+       if (form.weight.value==null||form.weight.value.length==0 || form.height.value==null||form.height.value.length==0){
+            alert("\nPlease complete the form first");
+            return false;
+       }
+
+       else if (parseFloat(form.height.value) <= 0||
+                parseFloat(form.height.value) >=500||
+                parseFloat(form.weight.value) <= 0||
+                parseFloat(form.weight.value) >=500){
+                alert("\nReally know what you're doing? \nPlease enter values again. \nWeight in kilos and \nheight in cm");
+                ClearForm(form);
+                return false;
+       }
+       return true;
+
+}
+
+function computeForm(form) {
+
+       if (checkForm(form)) {
+
+       var yourBmi = Math.round(bmi(form.weight.value, form.height.value/100));
+       form.bmi.value=yourBmi;
+
+       if (yourBmi >40) {
+          form.my_comment.value="You are grossly obese, consult your physician!";
+       }
+
+       else if (yourBmi >30 && yourBmi <=40) {
+          form.my_comment.value="Umm... You are obese, want some liposuction?";
+       }
+
+       else if (yourBmi >27 && yourBmi <=30) {
+          form.my_comment.value="You are very fat, do something before it's too late";
+       }
+
+       else if (yourBmi >22 && yourBmi <=27) {
+          form.my_comment.value="You are fat, need dieting and exercise";
+       }
+
+       else if (yourBmi >=21 && yourBmi <=22) {
+          form.my_comment.value="I envy you. Keep it up!!";
+       }
+
+       else if (yourBmi >=18 && yourBmi <21) {
+          form.my_comment.value="You are thin, eat more.";
+       }
+
+       else if (yourBmi >=16 && yourBmi <18) {
+          form.my_comment.value="You are starving. Go Find some food!";
+       }
+
+       else if (yourBmi <16) {
+          form.my_comment.value="You're grossly undernourished, need hospitalization ";
+       }
+
+       }
+       return;
+}

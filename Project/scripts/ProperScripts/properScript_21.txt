@@ -1,0 +1,19 @@
+function CC_getBrowserName()   {   
+         document.forms[0].elements[0].value =navigator.appName;     
+ }
+
+ function CC_getBrowserVersion()   {   
+         document.forms[0].elements[0].value =  navigator.appVersion;     
+ }
+
+ function CC_getBrowserCodeName()   {   
+         document.forms[0].elements[0].value = navigator.appCodeName;     
+ }
+
+ function CC_getBrowserUserAgent()   {   
+         document.forms[0].elements[0].value =  navigator.userAgent;     
+ }
+
+ function CC_getBrowserNameVersion()   {   
+         document.forms[0].elements[0].value = navigator.appName + " " + navigator.appVersion;     
+ }
