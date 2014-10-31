@@ -7,10 +7,12 @@ def createData(path, bin):
     '''Returns two lists. A list of labels for the SVM and a list of values corresponding with the labels'''
     values = []
     labels = []
-    for filename in os.listdir(path): #Goes over the files in the folder
-        file = open(path + '\\' + filename, 'r').read()
-        values+= scriptVectorize(file)
-        labels+= [float(bin)]
+    for filename in os.listdir(path):
+        #Goes over the files in the folder
+        if filename.endswith(".txt") or filename.endswith(".js"): 
+            file = open(path + '\\' + filename, 'r').read()
+            values+= scriptVectorize(file)
+            labels+= [float(bin)]
     return values, labels
 
 def loadData(path):
