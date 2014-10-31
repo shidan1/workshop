@@ -1,6 +1,6 @@
 import os
 import codecs
-from svmutil import svm_train, svm_predict, svm_load_model
+from svmutil import svm_train, svm_predict, svm_load_model, svm_save_model
 from Project.ScriptVector import scriptVectorize
 from slimit import minifier
 
@@ -34,9 +34,12 @@ def train(values,labels,param='-c 4 -q'):
     m = svm_train(labels, values, param)
     return m
 
-def createModel(path = os.path.dirname(os.path.realpath(__file__))):
+def createModel(path = os.path.dirname(os.path.realpath(__file__)), saveFlag=False):
     values, labels = loadData(path)
-    return train(values,labels)
+    m = train(values,labels)
+    if saveFlag:
+        svm_save_model('data.model',m)
+    return m
 
 def importModel(path):
     m = svm_load_model(path)
