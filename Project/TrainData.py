@@ -9,16 +9,18 @@ def createData(path, bin):
     labels = []
     for filename in os.listdir(path):
         #Goes over the files in the folder
+        print(filename)
         if filename.endswith(".txt") or filename.endswith(".js"): 
-            file = open(path + '\\' + filename, 'r').read()
+            script = open(path + '/' + filename, 'r')
+            file = script.read()
             values+= scriptVectorize(file)
             labels+= [float(bin)]
     return values, labels
 
 def loadData(path):
     '''Receives a path and creates two data vectors from the scripts found in 'scripts/goodCode' and 'scripts/badCode'. '''
-    values,labels = createData(path+'\\scripts\\badCode', -1)
-    values2,labels2 = createData(path+'\\scripts\\goodCode', 1)
+    values,labels = createData(path+'/scripts/badCode', -1)
+    values2,labels2 = createData(path+'/scripts/goodCode', 1)
     values = values+values2
     labels = labels+labels2
     return values,labels
