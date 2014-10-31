@@ -6,10 +6,10 @@ the script’s whitespace percentage
 from slimit import minifier
 
 def scriptWhitespacePercentage(script):
-    miniScript = minifier.minify(script)
+    miniScript = script#minifier.minify(script)
     whiteSpaces = miniScript.count(" ")
     allChars = len(miniScript)
-    return str(round(whiteSpaces/allChars*100,2)) + "%"
+    return round(whiteSpaces/allChars*100,2)
 
 
 def run(script):
