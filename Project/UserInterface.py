@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import Menu
 import tkinter.scrolledtext as tkst
 from tkinter.constants import END
+from Project.Evaluate import evaluate
 
 root = tkinter.Tk(className=" Workshop: Compile-time techniques for detecting JavaScript exploits")
 textPad = tkst.ScrolledText(root, width=100, height=40, padx=5, pady = 5, highlightthickness=3, bg = "LightSteelBlue1")
@@ -47,7 +48,15 @@ def save_as_command():
 
 # DETECT MALICIOUS CODE   
 def detect_command():
-        messagebox.showinfo("Results", " Here comes the results")  
+        script = textPad.get("1.0",END+'-1c')
+        result = evaluate(script)
+        if result[0] == 1.0:
+            message = "This script is clean of malicious activity"
+        if result[0] == -1.0:
+            message = "This script has some sort of maliciousness"
+        else:
+            message = "Error"
+        messagebox.showinfo("Results", message)  
 
 # EXIT THE PROGRAM
 def exit_command():

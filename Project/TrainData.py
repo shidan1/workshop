@@ -1,20 +1,20 @@
 import os
+import codecs
 from svmutil import svm_train, svm_predict, svm_load_model
 from Project.ScriptVector import scriptVectorize
 #path = os.path.dirname(os.path.realpath(__file__))+'\\scripts\\badCode' 
 
-def createData(path, bin):
+def createData(path, isMalicious):
     '''Returns two lists. A list of labels for the SVM and a list of values corresponding with the labels'''
     values = []
     labels = []
     for filename in os.listdir(path):
         #Goes over the files in the folder
-        print(filename)
         if filename.endswith(".txt") or filename.endswith(".js"): 
-            script = open(path + '/' + filename, 'r')
-            file = script.read()
-            values+= scriptVectorize(file)
-            labels+= [float(bin)]
+            file = codecs.open(path + '/' + filename, encoding='utf-8')
+            script = file.read()
+            values+= scriptVectorize(script)
+            labels+= [float(isMalicious)]
     return values, labels
 
 def loadData(path):
