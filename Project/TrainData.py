@@ -41,7 +41,7 @@ def createModel(path = os.path.dirname(os.path.realpath(__file__)), saveFlag=Fal
         svm_save_model('data.model',m)
     return m
 
-def importModel(path):
+def importModel(path = 'data.model'):
     m = svm_load_model(path)
     return m
 
