@@ -39,5 +39,7 @@ def featureConfigure():
     featureConfig['Ngram.py'] = True
     featureConfig['ForLength.py'] = False
     featureConfig['WhileLength.py'] = False
+    featureConfig['averageWordSize.py'] = False
+    featureConfig['maxWordSize.py'] = False
     
     return featureConfig

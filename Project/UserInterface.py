@@ -51,11 +51,11 @@ def detect_command():
         script = textPad.get("1.0",END+'-1c')
         result = evaluate(script)
         if result[0] == 1.0:
-            messagebox.showinfo("Results", "This script is clean of malicious activity")
-        if result[0] == -1.0:
-            messagebox.showwarning("Results", "This script has some sort of maliciousness")  
+            messagebox.showinfo("Results", "No traces of malicious activity has been found!")
+        elif result[0] == -1.0:
+            messagebox.showwarning("Results", "This script has a high probability of being malicious!")  
         else:
-            messagebox.showerror("Results", "Error")  
+            messagebox.showerror("Results", "Error - something went wrong... please check your script!")  
 
 # EXIT THE PROGRAM
 def exit_command():

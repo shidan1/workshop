@@ -2,6 +2,8 @@ import os
 import codecs
 from svmutil import svm_train, svm_predict, svm_load_model
 from Project.ScriptVector import scriptVectorize
+from slimit import minifier
+
 #path = os.path.dirname(os.path.realpath(__file__))+'\\scripts\\badCode' 
 
 def createData(path, isMalicious):
@@ -13,7 +15,8 @@ def createData(path, isMalicious):
         if filename.endswith(".txt") or filename.endswith(".js"): 
             file = codecs.open(path + '/' + filename, encoding='utf-8')
             script = file.read()
-            values+= scriptVectorize(script)
+            miniScript = minifier.minify(script)
+            values+= scriptVectorize(miniScript)
             labels+= [float(isMalicious)]
     return values, labels
 
