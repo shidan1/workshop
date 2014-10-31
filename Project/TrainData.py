@@ -1,5 +1,5 @@
 import os
-from svmutil import svm_train, svm_predict
+from svmutil import svm_train, svm_predict, svm_load_model
 from OpenFiles import createData
 from ScriptVector import scriptVectorize
 #path = os.path.dirname(os.path.realpath(__file__))+'\\scripts\\badCode' 
@@ -13,9 +13,14 @@ def loadData(path = os.path.dirname(os.path.realpath(__file__))):
     return v,l
 
 def train(values,labels,param='-c 4 -q'):
-    '''Receives values vector, labels vector and a string containing the SVM paramaters and returns a model created by
+    '''Receives values vector, labels vector and a string containing the SVM parameters and returns a model created by
     training the SVM.'''
     m = svm_train(labels, values, param)
     return m
+
+def importModel(path):
+    m = svm_load_model(path)
+    return m
+
 
 
