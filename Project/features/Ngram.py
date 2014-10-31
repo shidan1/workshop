@@ -35,7 +35,11 @@ def checkChar(c):
 def nGram(script):
     d = initDict()
     countString(script,d)
+    if (d["number"]+d["letter"])==0:
+        return (d["else"]+d["special"])
     return (d["else"]+d["special"])/(d["number"]+d["letter"])
 
 def run(script):
     return nGram(script)
+
+
