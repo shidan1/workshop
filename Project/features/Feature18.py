@@ -10,7 +10,7 @@ def averageScriptLineLength(path):
             lines += 1
             words += len(line.split())
             chars += len(line)
-    return str(round(chars/lines,2))
+    return round(chars/lines,2)
     
     
 def run(script):

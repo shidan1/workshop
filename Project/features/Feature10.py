@@ -7,6 +7,8 @@ from Project.StringExtractor import strExtract
 
 def maxStrLength(script):
     strings = strExtract(script)
+    if strings == []:
+        return 0
     return len(max(strings, key=len))
     
     

@@ -19,7 +19,7 @@ def averageLengthOfStrings(script):
     for string in strings:
         totalStringsLength += len(string)-2
     if len(strings) > 0:
-        return str(round(totalStringsLength/len(strings),2))
+        return round(totalStringsLength/len(strings),2)
     else:
         return 0
 
