@@ -4,6 +4,7 @@ from slimit.visitors import nodevisitor
 from slimit import ast
 
 def strExtract(s):
+    '''Extracts all the substrings from the script by looking for ' or " characters.'''
     l = []
     i=0
     j=0
@@ -25,6 +26,7 @@ def strExtract(s):
 
 
 def strExtractParse(s):
+    '''Extracts all the substrings from the script using a lexer. '''
     l=[]
     lexer = Lexer()
     lexer.input(s)
@@ -37,6 +39,7 @@ def strExtractParse(s):
     return l
 
 def forExtract(s):
+    '''Extracts all the for loops in the script.'''
     l = []
     parser = Parser()
     tree = parser.parse(s)
@@ -46,6 +49,7 @@ def forExtract(s):
     return l
 
 def whileExtract(s):
+    '''Extracts all the while loops in the script. '''
     l = []
     parser = Parser()
     tree = parser.parse(s)

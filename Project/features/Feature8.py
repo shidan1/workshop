@@ -1,6 +1,6 @@
 """
 A Static Malicious JavaScript Detection Using SVM - Feature 8:
-the maximum entropy of all the script’s strings
+the maximum entropy of all the substrings in the script.
 """
 
 from Project.Entropy import strEntropy

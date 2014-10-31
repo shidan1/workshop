@@ -1,9 +1,6 @@
-"""
-A Static Malicious JavaScript Detection Using SVM - Feature 13:
-the number of event attachments
-"""
 
 def feature13(script):
+    '''Counts the number of times the substring \u appears in the string.'''
     return script.count('\\u')
 
 def run(script):
