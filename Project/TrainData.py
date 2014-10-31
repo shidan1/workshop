@@ -1,16 +1,25 @@
 import os
 from svmutil import svm_train, svm_predict, svm_load_model
-from OpenFiles import createData
-from ScriptVector import scriptVectorize
+from Project.ScriptVector import scriptVectorize
 #path = os.path.dirname(os.path.realpath(__file__))+'\\scripts\\badCode' 
 
-def loadData(path = os.path.dirname(os.path.realpath(__file__))):
+def createData(path, bin):
+    '''Returns two lists. A list of labels for the SVM and a list of values corresponding with the labels'''
+    values = []
+    labels = []
+    for filename in os.listdir(path): #Goes over the files in the folder
+        file = open(path + '\\' + filename, 'r').read()
+        values+= scriptVectorize(file)
+        labels+= [float(bin)]
+    return values, labels
+
+def loadData(path):
     '''Receives a path and creates two data vectors from the scripts found in 'scripts/goodCode' and 'scripts/badCode'. '''
-    v,l = createData(path+'\\scripts\\badCode', -1)
-    v2,l2 = createData(path+'\\scripts\\goodCode', 1)
-    v = v+v2
-    l = l+l2
-    return v,l
+    values,labels = createData(path+'\\scripts\\badCode', -1)
+    values2,labels2 = createData(path+'\\scripts\\goodCode', 1)
+    values = values+values2
+    labels = labels+labels2
+    return values,labels
 
 def train(values,labels,param='-c 4 -q'):
     '''Receives values vector, labels vector and a string containing the SVM parameters and returns a model created by
@@ -18,9 +27,14 @@ def train(values,labels,param='-c 4 -q'):
     m = svm_train(labels, values, param)
     return m
 
+def createModel(path = os.path.dirname(os.path.realpath(__file__))):
+    values, labels = loadData(path)
+    return train(values,labels)
+
 def importModel(path):
     m = svm_load_model(path)
     return m
+
 
 
 
