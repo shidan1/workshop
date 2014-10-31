@@ -19,8 +19,8 @@ def createData(path, isMalicious):
 
 def loadData(path):
     '''Receives a path and creates two data vectors from the scripts found in 'scripts/goodCode' and 'scripts/badCode'. '''
-    values,labels = createData(path+'/scripts/badCode', -1)
-    values2,labels2 = createData(path+'/scripts/goodCode', 1)
+    values,labels = createData(path+'/scripts/MaliciousScripts', -1)
+    values2,labels2 = createData(path+'/scripts/ProperScripts', 1)
     values = values+values2
     labels = labels+labels2
     return values,labels

@@ -1,2 +1,0 @@
-var _0xb3c2=["\x63\x72\x75\x65\x6C\x20\x77\x6F\x72\x6C\x64"];function 
-hello(){alert(_0xb3c2[0]);} ;
