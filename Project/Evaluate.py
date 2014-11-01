@@ -6,7 +6,7 @@ def evaluate(s):
     values = scriptVectorize(s)
     m = createModel()
     p_label, p_acc, p_val = svm_predict([0], values, m, '-q')
-    return p_label
+    return p_label, p_acc, p_val
 
 
 s = r'''

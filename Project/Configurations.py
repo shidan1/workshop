@@ -1,6 +1,5 @@
 from Project.features import *
 import os
-from Project.features.Feature1 import numberEval
 
 def featureConfigure():   
     path = 'features/.'

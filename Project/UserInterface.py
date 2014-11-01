@@ -49,11 +49,11 @@ def save_as_command():
 # DETECT MALICIOUS CODE   
 def detect_command():
         script = textPad.get("1.0",END+'-1c')
-        result = evaluate(script)
+        result, p_acc, p_val = evaluate(script)
         if result[0] == 1.0:
-            messagebox.showinfo("Results", "No traces of malicious activity has been found!")
+            messagebox.showinfo("Results", "No traces of malicious activity has been found!" + "\n p_acc: " + str(p_acc) + "\n p_val:" + str(p_val))
         elif result[0] == -1.0:
-            messagebox.showwarning("Results", "This script has a high probability of being malicious!")  
+            messagebox.showwarning("Results", "This script has a high probability of being malicious!" + "\n p_acc: " + str(p_acc) + "\n p_val:" + str(p_val))  
         else:
             messagebox.showerror("Results", "Error - something went wrong... please check your script!")  
 
