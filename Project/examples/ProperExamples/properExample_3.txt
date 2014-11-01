@@ -1,0 +1,33 @@
+pics=new array()
+	pics[0]=new Image()
+	pics[1]=new Image()
+	pics[2]=new Image()
+	pics[3]=new Image()
+	pics[4]=new Image()
+	pics[5]=new Image()
+	pics[6]=new Image()
+	pics[7]=new Image()
+	pics[8]=new Image()
+	pics[9]=new Image()
+	pics[10]=new Image()
+	pics[11]=new Image()
+	pics[12]=new Image()
+	picNum=12
+	pics[0].src="runner1.jpg"
+	pics[1].src="runner2.jpg"
+	pics[2].src="runner3.jpg"
+	pics[3].src="runner4.jpg"
+	pics[4].src="runner5.jpg"
+	pics[5].src="runner6.jpg"
+	pics[6].src="runner7.jpg"
+	pics[7].src="runner8.jpg"
+	pics[8].src="runner9.jpg"
+	pics[9].src="runner10.jpg"
+	pics[10].src="runner11.jpg"
+	pics[11].src="runner12.jpg"
+	picdisplay=0;function animator(){picdisplay++
+	document.images.runner.src=pics[picdisplay].src
+	if(picdisplay==11)picdisplay=-1
+	tid=setTimeout("animator()",100)}
+	function startAnim(){picdisplay=0;animator()}
+	function stopAnim(){picdisplay=0;window.clearTimeout(tid);document.images.runner.src=pics[picdisplay].src}

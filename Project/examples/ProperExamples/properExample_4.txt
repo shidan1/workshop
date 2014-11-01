@@ -1,0 +1,38 @@
+var str= new String(window.location);
+var first_delim=str.search(/y=/i);
+var getYear=str.substring(first_delim+2, str.length);
+//
+
+function show(x)
+{
+var x;
+if(document.forms['theform'].elements["department"+x].selectedIndex!=0)   {
+                document.getElementById("check"+x).style.visibility="visible";
+				}
+
+else
+hide(x);
+}
+
+//
+function hide(x) {
+var x;
+document.getElementById("check"+x).style.visibility='hidden';
+document.forms['theform'].elements["department"+x].selectedIndex=0;
+}
+
+function checkStatus(){
+//alert(getYear)
+	for (i=0; i<document.forms['form'].year.options.length; i++){
+	if (document.forms['form'].year.options[i].value==getYear){
+	document.forms['form'].year.options[i].selected=true;
+	document.forms['theform'].year.options[i].selected=true;
+	}
+}
+for (x=1; x<13;x++){
+                 if (document.forms['theform'].elements["department"+x].selectedIndex!=0)
+				 {
+                 document.getElementById("check"+x).style.visibility="visible";
+                 }
+        }
+}
