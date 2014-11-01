@@ -4,8 +4,24 @@ from tkinter import messagebox
 from tkinter import Menu
 import tkinter.scrolledtext as tkst
 from tkinter.constants import END
+import os, sys
+
+projectPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
+
+sys.path.append(projectPath + "/Project")
+sys.path.append(projectPath)
+sys.path.append(projectPath + "/libsvm-3.18/python")
+sys.path.append(projectPath + "/ply-3.4")
+sys.path.append(projectPath + "/slimit-master/src")
+sys.path.append(projectPath + "/libsvm-3.18")
+#sys.path.append("/Library/Frameworks/Python.framework/Versions/3.3/lib/python33.zip")
+#sys.path.append("/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3")
+#sys.path.append("/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/plat-darwin")
+#sys.path.append("/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/lib-dynload")
+#sys.path.append("/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages")
+
 from Project.Evaluate import evaluate
-import os
+
 
 root = tkinter.Tk(className=" Workshop: Compile-time techniques for detecting JavaScript exploits")
 textPad = tkst.ScrolledText(root, width=100, height=40, padx=5, pady = 5, highlightthickness=3, bg = "LightSteelBlue1")
