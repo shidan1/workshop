@@ -11,4 +11,3 @@ def evaluate(s):
 
 s = r'''
 '''
-

@@ -1,6 +1,6 @@
 import os
 import codecs
-from svmutil import svm_train, svm_predict, svm_load_model, svm_save_model
+from svmutil import svm_train, svm_load_model, svm_save_model
 from Project.ScriptVector import scriptVectorize
 from slimit import minifier
 
